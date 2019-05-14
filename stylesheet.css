@@ -1,8 +1,10 @@
+/* GENERAL */
 body {
     margin: 0 auto;
     width: 1000px;
 }
 
+/* HEADER */
 .main-image {
     width: 1000px;
 }
@@ -17,4 +19,37 @@ header {
 
 .subtitle {
     margin-top: 0;
+}
+
+/* RESERVATION */
+.reservations {
+    display: flex;
+    justify-content: center;
+}
+
+.waiting, .existing {
+    width: 50%;
+    margin: 0 auto;
+}
+
+form {
+    display: table;
+}
+
+div.form {
+    display: table-row;
+}
+
+label, input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid black;
 }
