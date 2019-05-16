@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/Users/zenasni/Documents/sirine/unit-9-project/style/stylesheet.css">
     <title>Monk's Cafe</title>
 </head>
 
@@ -10,7 +10,7 @@
     <header>
         <h1 class="main-title">Monk’s Cafe</h1>
         <h4 class="subtitle">“The Coffee Shop”</h4>
-        <img class="main-image" src="toms-restaurant.jpg" alt="restaurant">
+        <img class="main-image" src="/Users/zenasni/Documents/sirine/unit-9-project/images/toms-restaurant.jpg" alt="restaurant">
     </header>
         
     <h1>Reservations</h1>
@@ -18,7 +18,7 @@
     <section class="reservations">
     <div class="waiting">
         <h3>Make a Reservation</h3>
-        <form>
+        <form id="reservation-form">
             <div class="form">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder="Name"> 
@@ -44,17 +44,33 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>sirine</td>
-                    <td>11/11/19</td>
+
                 </tr>
             </tbody>
         </table>
     </div>  
     </section>  
+    <script id="template" type="text/x-handlebars-template">
+            <td>{{name}}</td>
+            <td>{{day}}</td>
+    </script>
     
     <h1>Come Dine with Us</h1>
     
     <h1>Customer Reviews</h1>
+
+<!-- Firebase CDN -->
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
+
+    <script src="JavaScript/handlebars-v4.0.5.js"></script>
+    <script src="JavaScript/jquery-3.0.0.js"></script> 
+    <script src="JavaScript/main.js"></script>
     
 </body>
 
