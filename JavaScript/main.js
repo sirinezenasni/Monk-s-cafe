@@ -24,13 +24,14 @@ $("#reservation-form").on("submit", function(event) {
 
     $("#name").val("");
     $("form #day").val("");
-    console.log("userInput:", userInput);
-    console.log("userInput.name:", userInput.name);
-    console.log("userInput.day:", userInput.day);
+    //console.log("userInput:", userInput);
+    //console.log("userInput.name:", userInput.name);
+    //console.log("userInput.day:", userInput.day);
     var reservationDetails = database.ref("details");
     reservationDetails.push(userInput);
 });
 
+function getReservation () {
 var query = firebase.database().ref("details").orderByKey();
 query.once("value")
 .then(function(snapshot) {
@@ -39,8 +40,28 @@ query.once("value")
     var key = childSnapshot.key;
     // childData will be the actual contents of the child
     var childData = childSnapshot.val();
-    console.log("key: ", key);
-    console.log("childData: ", childData);
+    var allData = [];
+    //console.log("key: ", key);
+    //console.log("childData: ", childData);
+
+    var data = {
+        name: childData.name,
+        day: childData.day
+    };
+    //console.log("data: ", data);
+
+    var source = $("#template").html();
+    var template = Handlebars.compile(source);
+
+    var detailsListElement = template(data);
+
+    allData.push(detailsListElement);
+    console.log("allData: ", allData);
+
+    $(".reservation-item").append(allData);
 
     });
 });
+}
+
+getReservation();
