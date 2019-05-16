@@ -44,31 +44,3 @@ query.once("value")
 
     });
 });
-
-// retreive data
-//function getDetails () {
-    //database.ref("details").on("value", function(results) {
-        //var allDetails = results.val();
-        //console.log("allDetails: ", allDetails);
-
-        //var detail = [];
-
-        //for (var item in allDetails) {
-        //    var context = {
-        //        name: allDetails[item].name,
-        //        day: allDetails[item].day
-        //    };
-
-        //    var source = $("#template").html();
-
-        //    var template = Handlebars.compile(source);
-
-        //    var reservationListDetails = template(context);
-
-        //    detail.push(reservationListDetails);
-        //}
-        //$(".details").empty();
-    //});
-//}
-
-//getDetails();
