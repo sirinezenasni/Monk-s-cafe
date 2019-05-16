@@ -32,6 +32,42 @@ $("#reservation-form").on("submit", function(event) {
 });
 
 function getReservation () {
+    database.ref("details").on("value", function(result) {
+        var allDetails = result.val();
+        //console.log("allDetails: ", allDetails);
+
+        var allData = [];
+
+        for (var item in allDetails) {
+            var data = {
+                name: allDetails[item].name,
+                day: allDetails[item].day,
+                itemId: item
+            };
+
+            var source = $("#template").html();
+
+            var template = Handlebars.compile(source);
+
+            var detailsListElement = template(data);
+
+            allData.push(detailsListElement);
+            //console.log("allData: ", allData);
+        }
+        
+        //console.log("data: ", data);
+
+        for (var i in allData) {
+            $(".reservation-item").append(allData[i]);
+        };
+        //$(".reservation-item").append(allData);
+
+    });
+}
+/*
+
+    });
+
 var query = firebase.database().ref("details").orderByKey();
 query.once("value")
 .then(function(snapshot) {
@@ -62,6 +98,6 @@ query.once("value")
 
     });
 });
-}
+}*/
 
 getReservation();
