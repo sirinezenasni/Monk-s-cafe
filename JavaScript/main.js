@@ -1,17 +1,15 @@
-// initialize firebase
 var firebaseConfig = {
-    apiKey: "AIzaSyAgzOd6iyHmM1au_nYBzbwcJ7EcwQAJa6g",
-    authDomain: "unit9-project.firebaseapp.com",
-    databaseURL: "https://unit9-project.firebaseio.com",
-    projectId: "unit9-project",
-    storageBucket: "unit9-project.appspot.com",
-    messagingSenderId: "1013251011486",
-    appId: "1:1013251011486:web:652948bad7c0d191"
+    apiKey: "YOUR-API-KEY",
+    authDomain: "[...].firebaseapp.com",
+    databaseURL: "https://[...].firebaseio.com",
+    projectId: "[...]",
+    storageBucket: "[...].appspot.com",
+    messagingSenderId: "[...]",
+    appId: "YOUR-APP-ID"
 };
   
 firebase.initializeApp(firebaseConfig);
 
-// connect to firebase application 
 var database = firebase.database();
 
 $("#reservation-form").on("submit", function(event) {
@@ -24,9 +22,6 @@ $("#reservation-form").on("submit", function(event) {
 
     $("#name").val("");
     $("form #day").val("");
-    //console.log("userInput:", userInput);
-    //console.log("userInput.name:", userInput.name);
-    //console.log("userInput.day:", userInput.day);
     var reservationDetails = database.ref("details");
     reservationDetails.push(userInput);
 });
@@ -34,7 +29,6 @@ $("#reservation-form").on("submit", function(event) {
 function getReservation () {
     database.ref("details").on("value", function(result) {
         var allDetails = result.val();
-        //console.log("allDetails: ", allDetails);
 
         var allData = [];
 
@@ -52,58 +46,17 @@ function getReservation () {
             var detailsListElement = template(data);
 
             allData.push(detailsListElement);
-            //console.log("allData: ", allData);
         }
         
-        //console.log("data: ", data);
-
         for (var i in allData) {
             $(".reservation-item").append(allData[i]);
         };
-        //$(".reservation-item").append(allData);
-
     });
 }
-/*
-
-    });
-
-var query = firebase.database().ref("details").orderByKey();
-query.once("value")
-.then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-    // key will be "ada" the first time and "alan" the second time
-    var key = childSnapshot.key;
-    // childData will be the actual contents of the child
-    var childData = childSnapshot.val();
-    var allData = [];
-    //console.log("key: ", key);
-    //console.log("childData: ", childData);
-
-    var data = {
-        name: childData.name,
-        day: childData.day
-    };
-    //console.log("data: ", data);
-
-    var source = $("#template").html();
-    var template = Handlebars.compile(source);
-
-    var detailsListElement = template(data);
-
-    allData.push(detailsListElement);
-    console.log("allData: ", allData);
-
-    $(".reservation-item").append(allData);
-
-    });
-});
-}*/
 
 getReservation();
 
 //add google map
-// Initialize and add the map
 function initMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         center: {lat: 40.8054491, lng: -73.9654415},
