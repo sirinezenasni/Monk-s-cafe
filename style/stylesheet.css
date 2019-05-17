@@ -3,6 +3,7 @@ body {
     margin: 0 auto;
     width: 1000px;
     background-color: rgb(213, 206, 192);
+    color: rgb(8, 17, 61);
 }
 
 html {
@@ -74,17 +75,19 @@ input {
     justify-content: right;
     width: 90%;
     padding: 8px 10px;
-    border: 2px solid #D7D7D7;
+    border: 2px solid rgb(78, 89, 113);
     margin: 8px;
     font-size: 14px;
+    background-color: rgb(213, 206, 192);
 }
 
 #button {
     width: 100%;
     align-items: center;
     background-color: rgb(63, 122, 185);
-    color: rgb(213, 206, 192);
     border: none;
+    color: rgb(8, 17, 61);
+
 }
 
 table {
@@ -94,9 +97,14 @@ table {
 
 table, td, th {
     padding: 8px 10px;
-    border: 2px solid #D7D7D7;
+    border: 2px solid rgb(78, 89, 113);
 }
 
 td {
     width: 50%;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
 }
